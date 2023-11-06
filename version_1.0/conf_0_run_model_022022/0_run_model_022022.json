@@ -1,0 +1,214 @@
+{
+  "theme": "browser",
+  "excelIncludeMeta": true,
+  "excelIncludeEmptySheets": true,
+  "defaultRendererOutput": "miroPivot",
+  "autoGenInputGraphs": true,
+  "storeLogFilesDuration": 7,
+  "defCompMode": "split",
+  "activateModules": {
+    "loadLocal": true,
+    "logFile": true,
+    "lstFile": true,
+    "attachments": true,
+    "hcube": false,
+    "downloadTempFiles": false
+  },
+  "aggregateWidgets": true,
+  "overwriteSheetOrder": {
+    "input": ["inputs", "_widgets"]
+  },
+  "overwriteAliases": {
+    "inputs": {
+      "newAlias": "input for risk factors"
+    },
+    "report_cons": {
+      "newAlias": "consumption analysis"
+    },
+    "report_health": {
+      "newAlias": "health analysis"
+    },
+    "report_env": {
+      "newAlias": "environmental analysis"
+    },
+    "report_pb": {
+      "newAlias": "planetary boundary analysis"
+    },
+    "report_cost": {
+      "newAlias": "cost-of-diet analysis"
+    },
+    "report_nutr": {
+      "newAlias": "nutritional analysis"
+    }
+  },
+  "roundingDecimals": 2,
+  "handsontable": {
+    "stretchH": "none",
+    "readonly": false,
+    "manualColumnResize": true,
+    "contextMenu": {
+      "enabled": true,
+      "allowRowEdit": true,
+      "allowColEdit": true
+    },
+    "height": 700,
+    "colWidths": 200
+  },
+  "pageTitle": "Analysing impacts of dietary change",
+  "dataRendering": {
+    "inputs": {
+      "outType": "miroPivot",
+      "height": 700,
+      "options": {
+        "aggregationFunction": "sum",
+        "pivotRenderer": "table",
+        "enableHideEmptyCols": false,
+        "hideEmptyCols": false,
+        "hidePivotControls": false,
+        "emptyUEL": "-",
+        "rows": ["riskf_c", "fg_inp"],
+        "filter": {
+          "rgs": "GBR"
+        },
+        "cols": {
+          "diet_scn_n": null
+        }
+      }
+    },
+    "report_health": {
+      "outType": "miroPivot",
+      "height": 700,
+      "options": {
+        "aggregationFunction": "sum",
+        "pivotRenderer": "stackedbar",
+        "enableHideEmptyCols": false,
+        "hideEmptyCols": false,
+        "hidePivotControls": false,
+        "emptyUEL": "-",
+        "rows": "diet_scn_n",
+        "filter": {
+          "health_itm_n": "number of avoided deaths",
+          "rgs": "GBR",
+          "cause_io": "all-c",
+          "stats_io": "mean",
+          "yrs_scn": "2018"
+        },
+        "cols": {
+          "riskf_io": ["fruits", "legumes", "nuts_seeds", "obese", "overweight", "prc_meat", "red_meat", "underweight", "vegetables", "whole_grains"]
+        }
+      }
+    },
+    "report_cons": {
+      "outType": "miroPivot",
+      "height": 700,
+      "options": {
+        "aggregationFunction": "sum",
+        "pivotRenderer": "stackedbar",
+        "enableHideEmptyCols": false,
+        "hideEmptyCols": false,
+        "hidePivotControls": false,
+        "emptyUEL": "-",
+        "rows": "diet_scn_n",
+        "filter": {
+          "cons_itm_n": "Food intake (kcal/d)",
+          "rgs": "GBR",
+          "itm_chg_cons": "abs",
+          "yrs_scn": "2018"
+        },
+        "cols": {
+          "fg_agg": ["beef", "eggs", "fish", "fruit_veg", "grains", "lamb", "legumes", "milk", "nuts_seeds", "oils", "pork", "poultry", "roots", "sugar"]
+        }
+      }
+    },
+    "report_env": {
+      "outType": "miroPivot",
+      "height": 700,
+      "options": {
+        "aggregationFunction": "sum",
+        "pivotRenderer": "stackedbar",
+        "enableHideEmptyCols": false,
+        "hideEmptyCols": false,
+        "hidePivotControls": false,
+        "emptyUEL": "-",
+        "rows": "diet_scn_n",
+        "filter": {
+          "env_itm_n": "Greenhouse gas emissions (life-cycle) (MtCO2eq)",
+          "rgs": "GBR",
+          "itm_chg_env": "abs",
+          "yrs_scn": "2018"
+        },
+        "cols": {
+          "fg_agg": ["beef", "eggs", "fish", "fruit_veg", "grains", "lamb", "legumes", "milk", "nuts_seeds", "oils", "pork", "poultry", "roots", "sugar"]
+        }
+      }
+    },
+    "report_pb": {
+      "outType": "miroPivot",
+      "height": 700,
+      "options": {
+        "aggregationFunction": "sum",
+        "pivotRenderer": "bar",
+        "enableHideEmptyCols": false,
+        "hideEmptyCols": false,
+        "hidePivotControls": false,
+        "emptyUEL": "-",
+        "rows": "diet_scn_n",
+        "filter": {
+          "pb_itm_n": "Percentage of food-related planetary boundary (mean)",
+          "rgs": "GBR",
+          "fg_agg": "total",
+          "yrs_all": "2050"
+        },
+        "cols": {
+          "env_itm_n": null
+        }
+      }
+    },
+    "report_cost": {
+      "outType": "miroPivot",
+      "height": 700,
+      "options": {
+        "aggregationFunction": "sum",
+        "pivotRenderer": "stackedbar",
+        "enableHideEmptyCols": false,
+        "hideEmptyCols": false,
+        "hidePivotControls": false,
+        "emptyUEL": "-",
+        "rows": "diet_scn_n",
+        "filter": {
+          "itm_chg_cst_n": "cost (USD/d)",
+          "rgs": "GBR",
+          "stats_c": "mean",
+          "waste_scn_cst": "full_waste",
+          "yrs_scn": "2018"
+        },
+        "cols": {
+          "fg_agg": ["beef", "eggs", "fish", "fruit_veg", "grains", "lamb", "legumes", "milk", "nuts_seeds", "oils", "pork", "poultry", "roots", "sugar"]
+        }
+      }
+    },
+    "report_nutr": {
+      "outType": "miroPivot",
+      "height": 700,
+      "options": {
+        "aggregationFunction": "sum",
+        "pivotRenderer": "table",
+        "enableHideEmptyCols": false,
+        "hideEmptyCols": false,
+        "hidePivotControls": false,
+        "emptyUEL": "-",
+        "rows": "nutr_n",
+        "filter": {
+          "itm_nutr_n": "deviation from recommendation (%)",
+          "rgs": "GBR",
+          "fg_agg": "total",
+          "stats_n": "mean",
+          "yrs_scn": "2018"
+        },
+        "cols": {
+          "diet_scn_n": null
+        }
+      }
+    }
+  }
+}
