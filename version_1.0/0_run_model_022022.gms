@@ -6,11 +6,12 @@
 *        Springmann M, The Diet Impact Assessment (DIA) model:
 *        an interactive modelling tool for analysing the health,
 *        environmental, and affordability implications of dietary
-*        change. Version: 8 April
+*        change. Version: 6 November 2023
 
 *        Contact:
-*        Marco Springmann, Nuffield Department of Population Health,
-*        University of Oxford, marco.springmann.ndph.ox.ac.uk.
+*        Marco Springmann, University of Oxford and
+*        London School of Hygiene and Tropical Medicine,
+*        marco.springmann.ouce.ox.ac.uk, marco.springmann.lshtm.ac.uk.
 
 *-------------------------------------------------------------------------------
 *        Controls
